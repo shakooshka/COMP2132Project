@@ -9,6 +9,36 @@ html {
   box-sizing: inherit;
 }
 
+#pop-up-rules {
+  border-radius: 10px;
+  border: 5px solid purple;
+  width: 850px;
+  border: solid 1px;
+  padding: 10px;
+  background-color: slategray;
+  color: white;
+  box-shadow: 0px 0px 5px purple, 5px 5px 5px black;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  background-color: inherit;
+  color: inherit;
+  border: solid 1px white;
+  cursor: pointer;
+  pointer-events: all;
+}
+
 img {
   max-width: 100%;
   height: auto;

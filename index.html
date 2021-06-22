@@ -12,60 +12,77 @@ date: June 24, 2021
     <script src="scripts/scripts.js" defer="defer"></script>
 </head>
 <body>
-    <h1>THE DICE GAME</h1>
-    <div class="container">
-        <div class=rowContainer>
-            <div class="box box1">
-                <div>
-                    <h2>YOU</h2>
-                    <figure>
-                        <img src="images/dice4.png" id="player-die-1" alt="dice value 4"> 
-                        <img src="images/dice2.png" id="player-die-2" alt="dice value 2">
-                    </figure>
-                    <div class="box box3">
-                        <h3>BOX SCORE</h3>
-                        <div class=rowContainer>
-                            <div class="boxScore box1">
-                                <h5>CURRENT SCORE</h5>
-                                <h2>0</h2>
+    <header>
+        <h1>THE DICE GAME</h1>
+    </header>
+    <main>
+        <section id="pop-up-rules">
+            <button id="btn-close">&#10005;</button>
+            <p>The Rules:</p>
+            <p>The user and the computer each roll a pair of dice 3 times.</br> 
+               After the third roll of the dice the player with highest score wins.</p> 
+            <p>The scoring for the game works as follows:
+                <ul>
+                    <li>If any of the players two dice comes up as a 1 then the score for that round for the player is 0. eg: if the player rolls a 6 and 1, they get a score of 0</li>
+                    <li>If the player rolls a pair of the same numbers then the players score is the total of the two dice times 2. eg: if he player rolls 5 and 5, they get a score of (5+5)*2=20</li>
+                    <li>If the player rolls any other combination of dice other than the ones mentioned above then the players score is the total value of the two dice, eg: player rolls a 3 and 2, player gets a score of 3+2=5</li>
+                </ul>
+            </p> 
+        </section>
+        <div class="container">
+            <div class=rowContainer>
+                <div class="box box1">
+                    <div>
+                        <h2>YOU</h2>
+                        <figure>
+                            <img src="images/dice4.png" id="player-die-1" alt="dice value 4"> 
+                            <img src="images/dice2.png" id="player-die-2" alt="dice value 2">
+                        </figure>
+                        <div class="box box3">
+                            <h3>BOX SCORE</h3>
+                            <div class=rowContainer>
+                                <div class="boxScore box1">
+                                    <h5>CURRENT SCORE</h5>
+                                    <h2 id="player-current-score">0</h2>
+                                </div>
+                                <div class="boxScore box1">
+                                    <h5>TOTAL SCORE</h5>
+                                    <h2 id="player-total-score">0</h2>
+                                </div>
                             </div>
-                            <div class="boxScore box1">
-                                <h5>TOTAL SCORE</h5>
-                                <h2>0</h2>
-                            </div>
-                        </div>
-                    </div>                    
+                        </div>                    
+                    </div>
                 </div>
-            </div>
-            <div class="box box2">
-                <div>
-                    <h2>COMPUTER</h2>
-                    <figure>
-                        <img src="images/dice2.png" id="computer-die-1" alt="dice value 2"> 
-                        <img src="images/dice4.png" id="computer-die-2" alt="dice value 4">
-                    </figure>
-                    <div class="box box3">
-                        <h3>BOX SCORE</h3>
-                        <div class=rowContainer>
-                            <div class="boxScore box2">
-                                <h5>CURRENT SCORE</h5>
-                                <h2>0</h2>
-                            </div>
-                            <div class="boxScore box2">
-                                <h5>TOTAL SCORE</h5>
-                                <h2>0</h2>
+                <div class="box box2">
+                    <div>
+                        <h2>COMPUTER</h2>
+                        <figure>
+                            <img src="images/dice2.png" id="computer-die-1" alt="dice value 2"> 
+                            <img src="images/dice4.png" id="computer-die-2" alt="dice value 4">
+                        </figure>
+                        <div class="box box3">
+                            <h3>BOX SCORE</h3>
+                            <div class=rowContainer>
+                                <div class="boxScore box2">
+                                    <h5>CURRENT SCORE</h5>
+                                    <h2 id="computer-current-score">0</h2>
+                                </div>
+                                <div class="boxScore box2">
+                                    <h5>TOTAL SCORE</h5>
+                                    <h2 id="computer-total-score">0</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>    
-        </div>
-        <div class=rowContainer>
-            <button id="btn-play">Play</button>
-            <button id="btn-new">New Game</button> 
-            <button id="btn-rules">Rules</button> 
+                </div>    
+            </div>
+            <div class=rowContainer>
+                <button id="btn-play">Roll</button>
+                <button id="btn-new">New Game</button> 
+                <button id="btn-rules">Rules</button> 
+            </div> 
         </div> 
-    </div> 
+    </main>
     <footer>
         <ul>
             <li><p>&copy; 2021 COMP2132 todd margaret all rights reserved</p></li>

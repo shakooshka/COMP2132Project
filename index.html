@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+author: Aitan Goldshmidt 
+date: June 24, 2021
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/function.js" defer="defer"></script>
+    <script src="scripts/scripts.js" defer="defer"></script>
+</head>
+<body>
+    <h1>THE DICE GAME</h1>
+    <div class="container">
+        <div class=rowContainer>
+            <div class="box box1">
+                <div>
+                    <h2>YOU</h2>
+                    <figure>
+                        <img src="images/dice4.png" id="player-die-1" alt="dice value 4"> 
+                        <img src="images/dice2.png" id="player-die-2" alt="dice value 2">
+                    </figure>
+                    <div class="box box3">
+                        <h3>BOX SCORE</h3>
+                        <div class=rowContainer>
+                            <div class="boxScore box1">
+                                <h5>CURRENT SCORE</h5>
+                                <h2>0</h2>
+                            </div>
+                            <div class="boxScore box1">
+                                <h5>TOTAL SCORE</h5>
+                                <h2>0</h2>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="box box2">
+                <div>
+                    <h2>COMPUTER</h2>
+                    <figure>
+                        <img src="images/dice2.png" id="computer-die-1" alt="dice value 2"> 
+                        <img src="images/dice4.png" id="computer-die-2" alt="dice value 4">
+                    </figure>
+                    <div class="box box3">
+                        <h3>BOX SCORE</h3>
+                        <div class=rowContainer>
+                            <div class="boxScore box2">
+                                <h5>CURRENT SCORE</h5>
+                                <h2>0</h2>
+                            </div>
+                            <div class="boxScore box2">
+                                <h5>TOTAL SCORE</h5>
+                                <h2>0</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class=rowContainer>
+            <button id="btn-play">Play</button>
+            <button id="btn-new">New Game</button> 
+            <button id="btn-rules">Rules</button> 
+        </div> 
+    </div> 
+    <footer>
+        <ul>
+            <li><p>&copy; 2021 COMP2132 todd margaret all rights reserved</p></li>
+        </ul>
+    </footer>
+</body>
+</html>

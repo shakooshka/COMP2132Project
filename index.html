@@ -9,6 +9,7 @@ date: June 24, 2021
     <title>Dice Game</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/scripts.js" defer="defer"></script>
+    <script src="scripts/jquery-3.4.1.min.js" defer="defer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -95,7 +96,16 @@ date: June 24, 2021
                 <button id="btn-play">Roll</button>
                 <button id="btn-new">New Game</button> 
                 <button id="btn-rules">Rules</button> 
+                <button id="btn-table">Show Table</button>
             </div> 
+            <table id="game-table">
+                <tr>
+                    <th>GAME</th>
+                    <th>YOUR SCORE</th>
+                    <th>COMPUTER'S SCORE</th>
+                    <th>RESULT</th>
+                </tr>
+            </table>
         </div> 
     </main>
     <footer>

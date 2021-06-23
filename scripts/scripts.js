@@ -1,4 +1,5 @@
 $("#winner-pop-up").hide();
+$("#game-table").hide();
 const delay = 500; 
 
 /*
@@ -48,6 +49,24 @@ function fadeIn(){
 }
 
 /*
+Show/hide game results
+*/
+const $btnShow = $("#btn-table");
+const $gameTable = $('#game-table');
+$btnShow.click(function(){
+	
+	const $btn = $(this);
+	
+	if($gameTable.is(':visible')){
+		$btn.text('Show Table');	
+	}else{
+		$btn.text('Hide Table');
+	};
+	
+	$gameTable.slideToggle(100);		
+});
+
+/*
 Close rules pop up
 */
 const closePopup = document.getElementById("rules-btn-close");
@@ -76,7 +95,8 @@ const playerTotalScore = document.getElementById("player-total-score");
 const computerCurrentScore = document.getElementById("computer-current-score");
 const computerTotalScore = document.getElementById("computer-total-score");
 
-//keep count of round, die value & score
+//keep count of games played, round, die value & score
+let gamesPlayed = 1;
 let currentRound = 1;
 const maxRound = 3;
 let die1 = 1;
@@ -87,8 +107,7 @@ let pCurrent = 0;
 let pTotal = 0;
 let cCurrent = 0;
 let cTotal = 0;
-
-
+let outcome = "WIN";
 
 function rollDice() {
     setTimeout(function(){
@@ -131,25 +150,33 @@ function rollDice() {
                 computerTotalScore.innerHTML = cTotal;
             }            
 
+
+
             document.getElementById("player-final-score").textContent = pTotal;
             document.getElementById("computer-final-score").textContent = cTotal;
 
             //declare winner and show message
             if(currentRound === maxRound){
-              setTimeout(function(){
+                setTimeout(function(){
                   if(cTotal > pTotal){
+                    outcome = "LOSE";
                     document.getElementById("winner-msg").textContent = "YOU LOSE!";
                     document.getElementById("winner-pop-up").style.backgroundImage = "url('https://media.giphy.com/media/V9T8PfurFuZH90QzOI/giphy.gif')";
                     document.getElementById("winner-pop-up").style.backgroundSize = "cover";  
                   }else if(cTotal == pTotal){
+                    outcome = "DRAW";
                     document.getElementById("winner-msg").textContent = "";
                     document.getElementById("winner-pop-up").style.backgroundImage = "url('https://media.giphy.com/media/bXdvCXs1MPZOE/giphy.gif')";
                     document.getElementById("winner-pop-up").style.backgroundSize = "cover";  
                   }
                   $("#winner-pop-up").slideDown(); 
-              }, delay) 
+                  const GameResults01 =  new GameResults(gamesPlayed, pTotal, cTotal, outcome);
+                  output.innerHTML += `<tr>${GameResults01.describeSelf()}</tr>`;
+                  gamesPlayed++;
+                }, delay) 
             }
             currentRound++;
+           
         }
     }, delay);
 }
@@ -163,6 +190,7 @@ function newGame() {
     pTotal = 0;
     cCurrent = 0;
     cTotal = 0;
+    outcome = "WIN";
 
     playerCurrentScore.innerHTML = pCurrent;
     playerTotalScore.innerHTML = pTotal;
@@ -176,7 +204,26 @@ function newGame() {
 
     document.getElementById("winner-msg").textContent = "YOU WIN!";
     document.getElementById("winner-pop-up").style.backgroundImage = "url('https://media.giphy.com/media/5jT0jaNDsM6Ik7X9yq/giphy.gif')";
+    document.getElementById("winner-pop-up").style.backgroundSize = "auto";  
 }
+
+/*
+Game results object
+*/
+const output = document.getElementById('game-table');
+function GameResults (gameNumber, playersTotalScore, computersTotalScore, result) {
+    this.gameNumber = gameNumber; 
+    this.playersTotalScore = playersTotalScore;
+    this.computersTotalScore = computersTotalScore;
+    this.result = result;
+  }
+
+GameResults.prototype.describeSelf = function(){
+    return `<td >${this.gameNumber}</td> 
+    <td >${this.playersTotalScore}</td>
+    <td >${this.computersTotalScore}</td>
+    <td >${this.result}</td>`;
+  }
 
 
 

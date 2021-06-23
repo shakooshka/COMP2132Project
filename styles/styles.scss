@@ -38,7 +38,7 @@ html {
     pointer-events: none;
 }
 
-#btn-close{
+#rules-btn-close{
     position:absolute;
     top:10px;
     right:10px;
@@ -50,6 +50,48 @@ html {
     cursor:pointer;
     pointer-events: all;
 }
+
+#results-btn-close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:25px;
+    height: 25px;
+    background-color: inherit;
+    color:inherit;
+    border:solid 1px white;
+    cursor:pointer;
+    pointer-events: all;
+}
+
+#winner-pop-up{
+    @include border-box(0px, $primary_container_colour, 1024px);
+    border:solid 3px;
+    padding:10px;
+    height: 500px;
+    background-image: url(https://media.giphy.com/media/5jT0jaNDsM6Ik7X9yq/giphy.gif);
+    color:white;
+    box-shadow:0px 0px 5px black, 5px 5px 5px black;
+    position:absolute;
+    top: 34%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity:1;
+    pointer-events: none;
+}
+
+#winner-msg{
+    font-size: 150px;
+    text-align: center;
+    margin: 50px;
+    color:yellow;
+}
+
+// #btn-new-gm{
+//     position: absolute;
+//     left:50%;
+//     transform:translate(-50%, -50%);
+// }
 
 img {
     max-width: 100%;
@@ -101,7 +143,6 @@ footer ul li {
 .box1 {background:$player_colour;}
 .box2 {background:$computer_colour;}
 .box3 {background:$score_colour;}
-
 
 .container {
     display:flex;
